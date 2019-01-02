@@ -5,11 +5,15 @@ This project simulates the prediction of an aircraft engine’s remaining useful
 
 This project was done in two phases. The first involved training the AFTSurvivalRegression, the second processing that model will simulated events. 
 
-<div style="text-align:center"><img src ="doc/images/spark_ml.png" /></div>
+<p align="center">
+<img src ="doc/images/spark_ml.png" />
+</p> 
 
 To exercise the prediction, a simulation was run using Spark/SparkML/Kafka and Spark structured streaming.
 
-![Kafka Architecture Overview](doc/images/overview.png)
+<p align="center">
+<img src ="doc/images/overview.png" />
+</p> 
 
 ## Description of Data
 The data used for this project is the NASA C-MAPSS Turbofan Engine Degradation Data Set https://ti.arc.nasa.gov/c/6/.  This data is model based simulated data from the Commercial Modular Aero-Propulsion System Simulation (C-MAPSS).
@@ -66,9 +70,9 @@ $ (cd data; unzip CMAPSSDATA.zip)
 
 ## Description of Software
 This project is was written using Python version 3.6.4 on the Anaconda platform. The development was done in Jupyter notebooks and Intellij. Notebooks were created for:
-* Data analysis
-* Data Preparation, Training, Test
-* Inference/Prediction
+* [Data analysis](aft/project_data_analysis.ipynb)
+* [Data Preparation, Training, Test](aft/project_aft_prep_train.ipynb)
+* [Inference/Prediction](aft/project_aft_inference.ipynb)
 
 Python scripts were created for:
 * Common data manipulation - engine_util.py
