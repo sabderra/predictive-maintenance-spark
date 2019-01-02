@@ -69,11 +69,11 @@ This project is was written using Python version 3.6.4 on the Anaconda platform.
 * [Inference/Prediction](aft/project_aft_inference.ipynb)
 
 Python scripts were created for:
-* Common data manipulation - engine_util.py
-* Data visualization (plots) - engine_viz.py
-* Kafka event producer - kafka/engine_cycle_producer.py
-* Kafka/Spark Structured Streaming Monitor/Producer – kafka/engine_cycle_consumer_struct.py
-* Alert Event Consumer - kafka/generic_consumer.py
+* [Common data manipulation](engine_util.py)
+* [Data visualization (plots)](engine_viz.py)
+* [Engine Time Series Simulator](kafka/engine_cycle_producer.py) - Kafka event producer that randomly selects an engine and posts its setting and sensor data to the engine-stream topic at a specified rate.
+* [Engine RUL Predictor](kafka/engine_cycle_consumer_struct.py) - Kafka/Spark Structured Streaming Monitor/Producer. This script uses the trained model to predict an engine's RUL based on its sensor data. If the RUL is within a threshold, an message is sent to the engine-alert topic.
+* [Engine Alert Monitor](kafka/generic_consumer.py) - Alert Event Consumer that listens on the engine-alert topic and prints any received alerts.
 
 Support shell scripts for starting demo and services include:
 * start_services.sh
@@ -92,14 +92,14 @@ https://mvnrepository.com/artifact/org.apache.spark/spark-streaming-kafka-0-10_2
 This jar was placed in the projects jars directory. Note when the engine monitor is executed as a spark job via spark-submit, the spark-sql-kafka package must be specified. This command can be found in the  start_engine_monitor.sh script:
 
 <pre>
-spark-submit --master local[2] --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.0 --jars spark-streaming-kafka-0-10_2.11-2.4.0.jar kafka/engine_cycle_consumer_struct.py localhost:9092 engine-stream -w 30 -s 30 -r 150
+$ spark-submit --master local[2] --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.0 --jars spark-streaming-kafka-0-10_2.11-2.4.0.jar kafka/engine_cycle_consumer_struct.py localhost:9092 engine-stream -w 30 -s 30 -r 150
 </pre>
 
 Spark master is run on CentOS using: $SPARK_HOME/sbin/start-master.sh
 
 To run Kafka and Zookeeper I leveraged Docker images from http://wurstmeister.github.io/kafka-docker/
-* Install docker-ce. Follow instructions from https://docs.docker.com/install/linux/docker-ce/centos/#install-docker-ce-1
-* Install docker-compose. Docker-compose is used to configure, orchestration and start/stop the containers. Follow these instructions https://docs.docker.com/compose/install/#install-compose
+* Install docker-ce. Follow instructions from https://docs.docker.com/install
+* Install docker-compose. Docker-compose is used to configure, orchestration and start/stop the containers. Follow these instructions https://docs.docker.com/compose/install
 
 This [docker-compose.yml](docker-compose.yml) file was used for downloading and starting the containers.
 
