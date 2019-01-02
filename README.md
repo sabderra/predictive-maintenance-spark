@@ -105,5 +105,45 @@ To run Kafka and Zookeeper I leveraged Docker images from http://wurstmeister.gi
 
 This docker-compose.yml file was used for downloading and starting the containers.
 
+Note, the topics used are predefined in this file along with their partition and replication settings.
+
+<pre>
+Starting Services
+[centos@cscie63 project]$ mkdir -p data/cassandra/data
+[centos@cscie63 project]$ mkdir -p data/cassandra/scripts
+[centos@cscie63 project]$ sudo docker-compose up -d
+</pre>
+
+Cassandra can be ignored, I had intended to add streaming to persist, but did not have the time to finish.
+
 python packages used can be installed with the provided requirements.txt file.
 $ pip install -r requirements.txt
+
+## Survival Regression
+Survival Regression Models such as Spark’s AFTSurvivalRegression require an addition input column for each training sample to identified whether it is censored or uncensored. Censoring is the condition where the value of a measurement or observation is only partially known i.e. the event has not occurred before the completion of the trial. Observations are called censored when knowledge of their survival time is incomplete. 
+
+A value of 1 means uncensored (the event has occurred). In the training set, all the engine time series in the training data are marked as uncensored under the assumptions that the failure event is known and is the last entry in the cycle life of that engine. However, I experimented with different settings and confirmed that setting all the uncensored gave the best result. 
+
+## Results
+Here are some sample results. A random set of 12 engines were chosen to see how the model did. The blue line shows the actual RUL which the yellow line is the prediction. 
+
+* The good:
+** While there is a lot of noise in the prediction, it trended well for the most part. 
+** The more cycles, the closer it seemed to converge. 
+
+* The bad:
+** The prediction was frequently more optimistic than the true RUL. It needs to be more conservative.
+
+
+## Conclusion
+Accelerated Failure Time model is a powerful regression tool for a set of problem were time-to-event is needed. Spark structured stream coupled with an existing ML model is a scalable approach at handling large volumes of incoming sensor data for  performing prediction maintenance.
+
+## References
+1. https://en.wikipedia.org/wiki/Predictive_maintenance
+2. https://en.wikipedia.org/wiki/Accelerated_failure_time_model
+3. https://spark.apache.org/docs/2.4.0/ml-classification-regression.html#survival-regression
+4. https://spark.apache.org/docs/latest/api/python/pyspark.ml.html#pyspark.ml.regression.AFTSurvivalRegression
+5. https://gallery.azure.ai/Solution/Predictive-Maintenance-10
+6. https://spark.apache.org/docs/2.4.0/structured-streaming-kafka-integration.html
+7. https://ragulpr.github.io/2016/12/22/WTTE-RNN-Hackless-churn-modeling/
+8. https://www.cscu.cornell.edu/news/statnews/stnews78.pdf 
