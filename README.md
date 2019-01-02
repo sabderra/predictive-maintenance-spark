@@ -107,7 +107,7 @@ To run Kafka and Zookeeper I leveraged Docker images from http://wurstmeister.gi
 * Install docker-ce. Follow instructions from https://docs.docker.com/install/linux/docker-ce/centos/#install-docker-ce-1
 * Install docker-compose. Docker-compose is used to configure, orchestration and start/stop the containers. Follow these instructions https://docs.docker.com/compose/install/#install-compose
 
-This docker-compose.yml file was used for downloading and starting the containers.
+This [docker-compose.yml](docker-compose.yml) file was used for downloading and starting the containers.
 
 Note, the topics used are predefined in this file along with their partition and replication settings.
 
