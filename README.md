@@ -5,7 +5,7 @@ This project simulates the prediction of an aircraft engine’s remaining useful
 
 This project was done in two phases. The first involved training the AFTSurvivalRegression, the second processing that model will simulated events. 
 
-![Spark ML](doc/images/spark_ml.png)
+<div style="text-align:center"><img src ="doc/images/spark_ml.png" /></div>
 
 To exercise the prediction, a simulation was run using Spark/SparkML/Kafka and Spark structured streaming.
 
@@ -107,8 +107,8 @@ This docker-compose.yml file was used for downloading and starting the container
 
 Note, the topics used are predefined in this file along with their partition and replication settings.
 
-<pre>
 Starting Services
+<pre>
 [centos@cscie63 project]$ mkdir -p data/cassandra/data
 [centos@cscie63 project]$ mkdir -p data/cassandra/scripts
 [centos@cscie63 project]$ sudo docker-compose up -d
@@ -126,6 +126,8 @@ A value of 1 means uncensored (the event has occurred). In the training set, all
 
 ## Results
 Here are some sample results. A random set of 12 engines were chosen to see how the model did. The blue line shows the actual RUL which the yellow line is the prediction. 
+
+![Sample results](doc/images/sample_results.png)
 
 * The good:
 ** While there is a lot of noise in the prediction, it trended well for the most part. 
