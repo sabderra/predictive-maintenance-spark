@@ -133,12 +133,12 @@ Here are some sample results. A random set of 12 engines were chosen to see how 
 
 ![Sample results](doc/images/sample_results.png)
 
-* The good:
-** While there is a lot of noise in the prediction, it trended well for the most part. 
-** The more cycles, the closer it seemed to converge. 
+- The good:
+  - While there is a lot of noise in the prediction, it trended well for the most part. 
+  - The more cycles, the closer it seemed to converge. 
 
-* The bad:
-** The prediction was frequently more optimistic than the true RUL. It needs to be more conservative.
+- The bad:
+  - The prediction was frequently more optimistic than the true RUL. It needs to be more conservative.
 
 
 ## Conclusion
