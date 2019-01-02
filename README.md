@@ -135,7 +135,7 @@ Here are some sample results. A random set of 12 engines were chosen to see how 
 
 - The good:
   - While there is a lot of noise in the prediction, it trended well for the most part. 
-  - The more cycles, the closer it seemed to converge. 
+  - The more cycles, the closer it converged. 
 
 - The bad:
   - The prediction was frequently more optimistic than the true RUL. It needs to be more conservative.
@@ -143,6 +143,8 @@ Here are some sample results. A random set of 12 engines were chosen to see how 
 
 ## Conclusion
 Accelerated Failure Time model is a powerful regression tool for a set of problem were time-to-event is needed. Spark structured stream coupled with an existing ML model is a scalable approach at handling large volumes of incoming sensor data for  performing prediction maintenance.
+
+Experimenting with and LSTM based model is next.
 
 ## References
 1. https://en.wikipedia.org/wiki/Predictive_maintenance
