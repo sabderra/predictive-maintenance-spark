@@ -109,9 +109,9 @@ Note, the topics used are predefined in this file along with their partition and
 
 Starting Services
 <pre>
-[centos@cscie63 project]$ mkdir -p data/cassandra/data
-[centos@cscie63 project]$ mkdir -p data/cassandra/scripts
-[centos@cscie63 project]$ sudo docker-compose up -d
+$ mkdir -p data/cassandra/data
+$ mkdir -p data/cassandra/scripts
+$ sudo docker-compose up -d
 </pre>
 
 Cassandra can be ignored, I had intended to add streaming to persist, but did not have the time to finish.
