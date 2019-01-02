@@ -3,13 +3,7 @@
 ## Overview
 This project simulates the prediction of an aircraft engine’s remaining useful life (RUL) using a survival analysis technique called accelerated failure time model. Determining the time available before a likely failure and being able to predict failures can help business’ better plan the use of their equipment, reduce operation costs, and avert issues before they become significant or catastrophic. The goal of predictive maintenance (PdM) is to allow for corrective actions and prevent unexpected equipment failure.
 
-This project was done in two phases. The first involved training the AFTSurvivalRegression, the second processing that model will simulated events. 
-
-<p align="center">
-<img src ="doc/images/spark_ml.png" />
-</p> 
-
-To exercise the prediction, a simulation was run using Spark/SparkML/Kafka and Spark structured streaming.
+This project has two parts and leverages Spark/SparkML/Kafka and Spark structured streaming. The first part involved training an AFTSurvivalRegression model, the second processing that model simulated incoming time series events fed through a Kafka topic to exercise the prediction workflow.
 
 <p align="center">
 <img src ="doc/images/overview.png" />
