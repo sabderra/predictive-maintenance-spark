@@ -56,10 +56,10 @@ The original CMAPSS data was in multiple txt files and were combined into dedica
 
 **Download**
 
-<pre>
-$ curl -L https://ti.arc.nasa.gov/c/6/ -o data/CMAPSSDATA.zip
-$ (cd data; unzip CMAPSSDATA.zip)
-</pre>
+```bash
+curl -L https://ti.arc.nasa.gov/c/6/ -o data/CMAPSSDATA.zip
+(cd data; unzip CMAPSSDATA.zip)
+```
 
 
 ## Description of Software
@@ -91,9 +91,9 @@ https://mvnrepository.com/artifact/org.apache.spark/spark-streaming-kafka-0-10_2
 
 This jar was placed in the projects jars directory. Note when the engine monitor is executed as a spark job via spark-submit, the spark-sql-kafka package must be specified. This command can be found in the  start_engine_monitor.sh script:
 
-<pre>
-$ spark-submit --master local[2] --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.0 --jars spark-streaming-kafka-0-10_2.11-2.4.0.jar kafka/engine_cycle_consumer_struct.py localhost:9092 engine-stream -w 30 -s 30 -r 150
-</pre>
+```bash
+spark-submit --master local[2] --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.0 --jars spark-streaming-kafka-0-10_2.11-2.4.0.jar kafka/engine_cycle_consumer_struct.py localhost:9092 engine-stream -w 30 -s 30 -r 150
+```
 
 Spark master is run on CentOS using: $SPARK_HOME/sbin/start-master.sh
 
@@ -106,16 +106,18 @@ This [docker-compose.yml](docker-compose.yml) file was used for downloading and 
 Note, the topics used are predefined in this file along with their partition and replication settings.
 
 Starting Services
-<pre>
-$ mkdir -p data/cassandra/data
-$ mkdir -p data/cassandra/scripts
-$ sudo docker-compose up -d
-</pre>
+```bash
+mkdir -p data/cassandra/data
+mkdir -p data/cassandra/scripts
+sudo docker-compose up -d
+```
 
 Cassandra can be ignored, I had intended to add streaming to persist, but did not have the time to finish.
 
 python packages used can be installed with the provided requirements.txt file.
-$ pip install -r requirements.txt
+```bash
+pip install -r requirements.txt
+```
 
 ## Survival Regression
 Survival Regression Models such as Spark’s AFTSurvivalRegression require an addition input column for each training sample to identified whether it is censored or uncensored. Censoring is the condition where the value of a measurement or observation is only partially known i.e. the event has not occurred before the completion of the trial. Observations are called censored when knowledge of their survival time is incomplete. 
