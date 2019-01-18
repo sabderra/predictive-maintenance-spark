@@ -125,7 +125,7 @@ Survival Regression Models such as Spark’s AFTSurvivalRegression require an ad
 A value of 1 means uncensored (the event has occurred). In the training set, all the engine time series in the training data are marked as uncensored under the assumptions that the failure event is known and is the last entry in the cycle life of that engine. However, I experimented with different settings and confirmed that setting all the uncensored gave the best result. 
 
 ## Results
-Here are some sample results. A random set of 12 engines were chosen to see how the model did. The blue line shows the actual RUL which the yellow line is the prediction. 
+Here are some sample results. A random set of 12 engines were chosen to see how the model did. The blue line shows the actual RUL while the yellow line is the prediction. 
 
 ![Sample results](doc/images/sample_results.png)
 
