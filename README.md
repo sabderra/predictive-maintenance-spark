@@ -1,5 +1,7 @@
 # predictive-maintenance-spark
 
+[![DOI](https://zenodo.org/badge/161590105.svg)](https://zenodo.org/badge/latestdoi/161590105)
+
 ## Overview
 This project simulates the prediction of an aircraft engine’s remaining useful life (RUL) using a survival analysis technique called accelerated failure time model. Determining the time available before a likely failure and being able to predict failures can help business’ better plan the use of their equipment, reduce operation costs, and avert issues before they become significant or catastrophic. The goal of predictive maintenance (PdM) is to allow for corrective actions and prevent unexpected equipment failure.
 
