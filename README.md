@@ -144,6 +144,7 @@ Accelerated Failure Time model is a powerful regression tool for a set of proble
 
 Experimenting with a [LSTM](https://github.com/sabderra/predictive-maintenance-lstm) based model is next.
 
+
 ## References
 1. https://en.wikipedia.org/wiki/Predictive_maintenance
 2. https://en.wikipedia.org/wiki/Accelerated_failure_time_model
@@ -153,3 +154,18 @@ Experimenting with a [LSTM](https://github.com/sabderra/predictive-maintenance-l
 6. https://spark.apache.org/docs/2.4.0/structured-streaming-kafka-integration.html
 7. https://ragulpr.github.io/2016/12/22/WTTE-RNN-Hackless-churn-modeling/
 8. https://www.cscu.cornell.edu/news/statnews/stnews78.pdf 
+
+
+To reference this repository:
+
+```
+@misc{saad_abderrazzaq_2019_3334941,
+  author       = {Saad Abderrazzaq},
+  title        = {{sabderra/predictive-maintenance-spark: Project 
+                   Submission}},
+  month        = jul,
+  year         = 2019,
+  doi          = {10.5281/zenodo.3334941},
+  url          = {https://doi.org/10.5281/zenodo.3334941}
+}
+```
